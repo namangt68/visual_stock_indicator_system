@@ -28,10 +28,12 @@ for line in f:
     hcMapping[line[1]] = line[2]
     pinMapping[line[2]] = line[3]
     hcFullNameMapping[line[1]] = line[0]
+    GPIO.setup(line[3], GPIO.OUT, pull_up_down=GPIO.PUD_UP)
 f.close()
+#print hcMapping
+#print pinMapping
+#print hcFullNameMapping
 
-
-GPIO.setup(pinMapping['0'], GPIO.OUT, pull_up_down=GPIO.PUD_UP)
 
 
 
@@ -104,9 +106,12 @@ def handleSMS(sms) :
     outSMS = 'Indicator turned '
     if msg[3] == '0':
         outSMS += 'ON for '
-        GPIO.output(pinMapping[hcMa, GPIO.LOW)
+        print pinMapping[hcMapping[healthcentre]]
+        GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.HIGH)
     else:
         outSMS += 'OFF for '
+        print pinMapping[hcMapping[healthcentre]]
+        GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.LOW)
     outSMS += hcFullNameMapping[healthcentre]
     outSMS += ' healthcentre.'
     sendSMS(phoneNum, outSMS)
