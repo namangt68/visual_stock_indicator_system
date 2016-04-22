@@ -13,6 +13,9 @@ import serial
 import re
 from time import sleep
 import shlex
+import Adafruit_BBIO.GPIO as GPIO
+
+
 
 #This function will read list of health center from a text file and 
 #Store it in two different array of health center name and their assigned code.
@@ -26,6 +29,11 @@ for line in f:
     pinMapping[line[2]] = line[3]
     hcFullNameMapping[line[1]] = line[0]
 f.close()
+
+
+GPIO.setup(pinMapping['0'], GPIO.OUT, pull_up_down=GPIO.PUD_UP)
+
+
 
 ser = serial.Serial('/dev/ttyO1', 9600, timeout = 1)
 ser.write('AT+CMGF=1\r\n')
@@ -96,6 +104,7 @@ def handleSMS(sms) :
     outSMS = 'Indicator turned '
     if msg[3] == '0':
         outSMS += 'ON for '
+        GPIO.output(pinMapping[hcMa, GPIO.LOW)
     else:
         outSMS += 'OFF for '
     outSMS += hcFullNameMapping[healthcentre]
