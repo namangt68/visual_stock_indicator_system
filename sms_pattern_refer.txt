@@ -1,0 +1,30 @@
+#This file describe the pattern in which the Health workers will send SMS for stock indication.
+
+Kamand ID: 0
+#kam0	-	Stock problem exists in Kamand
+#kam1	- 	Stock OK in Kamand
+
+Navlay ID: 1
+#nav0	-	Stock problem exists in Navlay
+#nav1	- 	Stock OK in Navlay
+
+Balmand ID: 2
+#bal0	-	Stock problem exists in Balmand
+#bal1	- 	Stock OK in Balmand
+
+Tandu ID: 3
+#tan0	-	Stock problem exists in Tandu
+#tan1	- 	Stock OK in Tandu
+
+Triyambli ID: 4
+#tri0	-	Stock problem exists in Triyambli
+#tri1	- 	Stock OK in Triyambli
+
+Tihri ID: 5
+#tih0	-	Stock problem exists in Tihri
+#tih1	- 	Stock OK in Tihri
+
+
+Pali ID: 6
+#pal0	-	Stock problem exists in Pali
+#pal1	- 	Stock OK in Pali
