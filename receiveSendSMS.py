@@ -2,9 +2,7 @@
 ####################################################################
 # receiveSMS.py
 # Received and displays the SMS
-# Gopal Krishan Aggarwal
-# April 22, 2016
-# Contact: gopalkriagg@gmail.com
+# Gopal Krishan Aggarwal and Naman Gupta
 # Description: Keeps listening to new SMSes and whenever an SMS is received it
 # prints it to console.
 ########################################################################
@@ -17,8 +15,8 @@ import Adafruit_BBIO.GPIO as GPIO
 
 
 
-#This function will read list of health center from a text file and 
-#Store it in two different array of health center name and their assigned code.
+#This function will read list of health center from a text file  
+#Store it in dictionary of health center name and their assigned code.
 f = open('list.txt')
 hcMapping = {}  #hcMapping contains mapping from healthcentre name to its id e.g hcMapping['kam'] = 0
 pinMapping = {}
@@ -35,7 +33,15 @@ f.close()
 #print hcFullNameMapping
 
 
-
+#This function will read list of medicine from a text file  
+#Store it in a dictionary of medicine name and its assigned code.
+f = open('medicine_list.txt')
+mdMapping = {}  #mdMapping contains mapping from medicine code to its name e.g mdMapping['p'] = paracetamol
+for line in f:
+    line = shlex.split(line.strip()) #Strip strips up whitespaces from beg and end of string; split splits the words by default on the basis of space
+    mdMapping[line[1]] = line[2]
+   f.close()
+print mdMapping
 
 ser = serial.Serial('/dev/ttyO1', 9600, timeout = 1)
 ser.write('AT+CMGF=1\r\n')
@@ -51,8 +57,8 @@ def delSMS() :
     print ser.read(100)
     print("Deleted all SMSes")
 
-delSMS()		#Delete any old SMSes
-ser.write('AT+CNMI=2,2,0,0,0\r\n')		#blurt out contents of new SMS upon receipt to the GSM shield's serial out
+delSMS()        #Delete any old SMSes
+ser.write('AT+CNMI=2,2,0,0,0\r\n')      #blurt out contents of new SMS upon receipt to the GSM shield's serial out
 print ser.read(100)
 
 def sendSMS(phoneNum, msg) :
@@ -102,7 +108,9 @@ def handleSMS(sms) :
     print "SMS msg is: "
     print msg
     healthcentre = msg[:3]
+    medicine = msg[5]
     print hcMapping[healthcentre]
+    print mdMapping[medicine]
     outSMS = 'Indicator turned '
     if msg[3] == '0':
         outSMS += 'ON for '
@@ -114,11 +122,13 @@ def handleSMS(sms) :
         GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.LOW)
     outSMS += hcFullNameMapping[healthcentre]
     outSMS += ' healthcentre.'
+    outSMS += 'Required:'
+    outSMS += mdMapping[medicine]
     sendSMS(phoneNum, outSMS)
 
 while True :
-	sms = ser.read(10000)		#@TODO: Handle the case when only half of message is read in
-	sys.stdout.write(sms)		#To print sms without newline
-	sleep(1)					#Sleep time is more in order to make it more likely that full SMS is read by ser.read()
-	if "CMT" in sms:
-		handleSMS(sms)
+    sms = ser.read(10000)       #@TODO: Handle the case when only half of message is read in
+    sys.stdout.write(sms)       #To print sms without newline
+    sleep(1)                    #Sleep time is more in order to make it more likely that full SMS is read by ser.read()
+    if "CMT" in sms:
+        handleSMS(sms)
