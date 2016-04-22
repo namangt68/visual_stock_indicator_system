@@ -1,0 +1,7 @@
+Kamand kam  0 P9_23
+Navlay nav  1 P9_23
+Balmand bal  2 P9_23
+Tandu tan  3 P9_23
+Triyambli itri  4 P9_23
+Tihri tih  5 P9_23
+Pali pal  6 P9_23
