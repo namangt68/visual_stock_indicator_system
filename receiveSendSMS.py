@@ -40,7 +40,7 @@ mdMapping = {}  #mdMapping contains mapping from medicine code to its name e.g m
 for line in f:
     line = shlex.split(line.strip()) #Strip strips up whitespaces from beg and end of string; split splits the words by default on the basis of space
     mdMapping[line[1]] = line[2]
-   f.close()
+f.close()
 print mdMapping
 
 ser = serial.Serial('/dev/ttyO1', 9600, timeout = 1)
@@ -57,8 +57,8 @@ def delSMS() :
     print ser.read(100)
     print("Deleted all SMSes")
 
-delSMS()        #Delete any old SMSes
-ser.write('AT+CNMI=2,2,0,0,0\r\n')      #blurt out contents of new SMS upon receipt to the GSM shield's serial out
+delSMS()		#Delete any old SMSes
+ser.write('AT+CNMI=2,2,0,0,0\r\n')		#blurt out contents of new SMS upon receipt to the GSM shield's serial out
 print ser.read(100)
 
 def sendSMS(phoneNum, msg) :
@@ -127,8 +127,8 @@ def handleSMS(sms) :
     sendSMS(phoneNum, outSMS)
 
 while True :
-    sms = ser.read(10000)       #@TODO: Handle the case when only half of message is read in
-    sys.stdout.write(sms)       #To print sms without newline
-    sleep(1)                    #Sleep time is more in order to make it more likely that full SMS is read by ser.read()
-    if "CMT" in sms:
-        handleSMS(sms)
+	sms = ser.read(10000)		#@TODO: Handle the case when only half of message is read in
+	sys.stdout.write(sms)		#To print sms without newline
+	sleep(1)					#Sleep time is more in order to make it more likely that full SMS is read by ser.read()
+	if "CMT" in sms:
+		handleSMS(sms)
