@@ -26,7 +26,7 @@ def handleSMS(sms) :
 	print sms
 	delSMS()
 
-ser = serial.Serial('/dev/ttyO1', 9600, timeout = 1)
+ser = serial.Serial('/dev/ttyO0', 9600, timeout = 1)
 ser.write('AT+CMGF=1\r\n')
 sleep(0.2)
 print ser.read(100)

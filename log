@@ -1,0 +1,240 @@
+{'i': '0', 'hc': 'kam', 'ts': '2016-04-23 22:07:32.613344\n', 'stock': 'p'}i=0&hc=kam&ts=2016-04-23+22%3A07%3A32.613344%0A&stock=pAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.101.190.58
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plain
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plainAT+CIPSHUT
+success{'i': '0', 'hc': 'nav', 'ts': '2016-04-23 22:17:11.170722\n', 'stock': 'c'}i=0&hc=nav&ts=2016-04-23+22%3A17%3A11.170722%0A&stock=cAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.66.169.118
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+CLOSED
+
+CLOSED
+AT+CIPSHUT
+
+SHUT OK
+failureAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIPSTART="TCP","54.86.132.254","80"
+
++CME ERROR: 3
+AT+CIPSEND
+
++CME ERROR: 3
+AT+CIPSEND
+
++CME ERROR: 3
+GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEVAT+CIPSHUT
+
+SHUT OK
+{'i': '0', 'hc': 'nav', 'ts': '2016-04-23 22:17:11.170722\n', 'stock': 'c'}i=0&hc=nav&ts=2016-04-23+22%3A17%3A11.170722%0A&stock=cAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.90.220.65
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plain
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plainAT+CIPSHUT
+success{'i': '0', 'hc': 'nav', 'ts': '2016-04-24 00:20:49.535278\n', 'stock': 'c'}i=0&hc=nav&ts=2016-04-24+00%3A20%3A49.535278%0A&stock=cAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.102.143.106
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+SEND OK
+
+SEND OK
+AT+CIPSHUT
+success{'i': '0', 'hc': 'tri', 'ts': '2016-04-24 00:36:03.850004\n', 'stock': 'a'}i=0&hc=tri&ts=2016-04-24+00%3A36%3A03.850004%0A&stock=aAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.103.151.246
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+CLOSED
+
+CLOSED
+AT+CIPSHUT
+
+SHUT OK
+failureAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.101.14.176
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plain
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plainAT+CIPSHUT
+{'i': '0', 'hc': 'kam', 'ts': '2016-04-24 00:37:08.104040\n', 'stock': 'p'}i=0&hc=kam&ts=2016-04-24+00%3A37%3A08.104040%0A&stock=pAT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.66.185.108
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plain
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plainAT+CIPSHUT
+success

@@ -12,12 +12,15 @@ import re
 from time import sleep
 import shlex
 import Adafruit_BBIO.GPIO as GPIO
+import os
+import datetime
+scriptPath = os.path.dirname(os.path.realpath(__file__))
 
-
+sleep(1) #Give time to turn on the GSM Module and catch the network
 
 #This function will read list of health center from a text file  
 #Store it in dictionary of health center name and their assigned code.
-f = open('list.txt')
+f = open(scriptPath + '/list.txt')
 hcMapping = {}  #hcMapping contains mapping from healthcentre name to its id e.g hcMapping['kam'] = 0
 pinMapping = {}
 hcFullNameMapping = {}
@@ -35,7 +38,7 @@ f.close()
 
 #This function will read list of medicine from a text file  
 #Store it in a dictionary of medicine name and its assigned code.
-f = open('medicine_list.txt')
+f = open(scriptPath + '/medicine_list.txt')
 mdMapping = {}  #mdMapping contains mapping from medicine code to its name e.g mdMapping['p'] = paracetamol
 for line in f:
     line = shlex.split(line.strip()) #Strip strips up whitespaces from beg and end of string; split splits the words by default on the basis of space
@@ -97,6 +100,12 @@ def findMsg(sms) :
         found = '' # apply error handling here
     return found
     
+def writeToFile(healthcentre, indication, stockDetails) :
+    fout = open(scriptPath + '/records', 'a+')
+    timestamp = str(datetime.datetime.now())
+    fout.write(healthcentre + "," + indication + "," + stockDetails + "," + timestamp + "\n")
+    fout.close()
+
 def handleSMS(sms) :
     print "SMS received"
     print sms
@@ -107,24 +116,35 @@ def handleSMS(sms) :
     msg = findMsg(sms)
     print "SMS msg is: "
     print msg
-    healthcentre = msg[:3]
-    medicine = msg[5]
-    print hcMapping[healthcentre]
-    print mdMapping[medicine]
-    outSMS = 'Indicator turned '
-    if msg[3] == '0':
-        outSMS += 'ON for '
-        print pinMapping[hcMapping[healthcentre]]
-        GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.HIGH)
+    if 'help' in msg:
+        print "Enter SMS in form #kam0 p for switching on indicator and paracetamol required."
+        outSMS = 'Enter SMS in form #kam0 p for switching on indicator and paracetamol required.'
+        sendSMS(phoneNum, outSMS)
     else:
-        outSMS += 'OFF for '
-        print pinMapping[hcMapping[healthcentre]]
-        GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.LOW)
-    outSMS += hcFullNameMapping[healthcentre]
-    outSMS += ' healthcentre.'
-    outSMS += 'Required:'
-    outSMS += mdMapping[medicine]
-    sendSMS(phoneNum, outSMS)
+        healthcentre = msg[:3]
+        medicine = msg[5]
+        stockDetails = msg[4:]
+        stockDetails = stockDetails.strip()
+        print "Stock details are: ",
+        print stockDetails
+        print hcMapping[healthcentre]
+        print mdMapping[medicine]
+        outSMS = 'Indicator turned '
+        if msg[3] == '0':
+            outSMS += 'ON for '
+            print pinMapping[hcMapping[healthcentre]]
+            GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.HIGH)
+        else:
+            outSMS += 'OFF for '
+            print pinMapping[hcMapping[healthcentre]]
+            GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.LOW)
+        outSMS += hcFullNameMapping[healthcentre]
+        outSMS += ' healthcentre.'
+        outSMS += 'Required:'
+        outSMS += mdMapping[medicine]
+        sendSMS(phoneNum, outSMS)
+        indication = msg[3]
+        writeToFile(healthcentre, indication, stockDetails)
 
 while True :
 	sms = ser.read(10000)		#@TODO: Handle the case when only half of message is read in
