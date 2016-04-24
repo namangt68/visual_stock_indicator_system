@@ -32,7 +32,7 @@
     <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1><a class="sparkfun-link">Medical Stock Data</a></h1>
+        <h1>Medical Stock Data/h1>
         <p class="loading">Loading...</p>
         <p class="done-loading" style="display: none;">Health Center wise stock status is shown below:</p>
     <hr />
@@ -51,8 +51,6 @@
 
   var public_key = 'ZGoYlZXwRoCqpMNGON70';
 var TIMESTAMP_KEY = 'timestamp';
-$('.sparkfun-link').text('Medical Stock Data: ' + public_key);
-$('.sparkfun-link').attr('href', 'https://data.sparkfun.com/streams/' + public_key);
  $.ajax({
    url: 'http://data.sparkfun.com/output/' + public_key + '.json',
    jsonp: 'callback',
