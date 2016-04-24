@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medical Stock Indicator System Data</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <style type="text/css">
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+        table
+        {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        table th
+        {
+            background-color: #F7F7F7;
+            color: #333;
+            font-weight: bold;
+        }
+        table th, table td
+        {
+            padding: 5px;
+            border-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1><a class="sparkfun-link">Medical Stock Data</a></h1>
+        <p class="loading">Loading...</p>
+        <p class="done-loading" style="display: none;">Health Center wise stock status is shown below:</p>
+    <hr />
+<table>
+    <tr>
+        <th>Health Center Name</th>
+        <th>Stock Availability</th>
+        <th>Required stock type</th>
+        <th>Stock Request time</th>
+    </tr>
+</table>    </div>
+    </div>
+  </div>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  var public_key = 'ZGoYlZXwRoCqpMNGON70';
+var TIMESTAMP_KEY = 'timestamp';
+$('.sparkfun-link').text('Medical Stock Data: ' + public_key);
+$('.sparkfun-link').attr('href', 'https://data.sparkfun.com/streams/' + public_key);
+ $.ajax({
+   url: 'http://data.sparkfun.com/output/' + public_key + '.json',
+   jsonp: 'callback',
+   cache: true,
+   dataType: 'jsonp',
+   data: {
+     page: 1
+   },
+   success: function(response) {
+        $('.loading').hide();
+    $('.done-loading').show();
+     // response will be a javascript
+     // array of objects
+     console.log(response);
+      var tr;
+        for (var i = 0; i < response.length; i++) {
+            tr = $('<tr/>');
+            tr.append("<td>" + response[i].hc + "</td>");
+            tr.append("<td>" + response[i].i + "</td>");
+            tr.append("<td>" + response[i].stock + "</td>");
+             tr.append("<td>" + response[i].ts + "</td>");
+            $('table').append(tr);
+        }
+
+        
+   }
+ });
+      
+
+
+    </script>
+</body>
+</html>
