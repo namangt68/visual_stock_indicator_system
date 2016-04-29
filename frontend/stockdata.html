@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Medical Stock Indicator System Data</title>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-   <style type="text/css">
+    <meta charset="UTF-8">
+    <title>Medical Stock Indicator System Data</title>
+    <link href=
+    "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel=
+    "stylesheet">
+    <style type="text/css">
         body
         {
             font-family: Arial;
@@ -27,75 +29,142 @@
             padding: 5px;
             border-color: #ccc;
         }
+        .show-details { cursor: pointer; }
     </style>
 </head>
 <body>
     <div class="container">
-    <div class="row"><div class="col-md-2">       <a href="stockdata.html" title="IIT Mandi Home"><img src="finallogo.png" class="img-responsive" alt="logo" ></a>
-</div>
-      <div class="col-md-10"><br>
-        <h1>Medical Stock Data</h1>
-        <p class="loading">Loading...</p>
-        <p class="done-loading" style="display: none;">Health Center wise stock status is shown below:</p>
+        <div class="row">
+            <div class="col-md-2">
+                <a href="stockdata.html" title="IIT Mandi Home"><img alt="logo"
+                class="img-responsive" src="finallogo.png"></a>
             </div>
-    <div class="row">
-      <div class="col-md-12">
+            <div class="col-md-10">
+                <br>
+                <h1>Medical Stock Data</h1>
+                <p class="loading">Loading...</p>
+                <p class="done-loading" style="display: none;">Health Center wise stock status is shown below:</p>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="stock-table">
+                    	<thead>
+                        <tr>
+                        	<th>S.No.</th>
+                            <th>Health Center Name</th>
+                            <th>Stock Availability</th>
+                            <th>Stock Request time</th>
+                        </tr>
+                        </thead>
 
-<table>
-    <tr>
-        <th>Health Center Name</th>
-        <th>Stock Availability</th>
-        <th>Required stock type</th>
-        <th>Stock Request time</th>
-                <th>Quantity</th>
-                
-    </tr>
-</table>    </div>
-    </div>
-  </div>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    var hcMapping = {"kam":"Kamand", "nav":"Navlay", "bal":"Balmand", "tri":"Triyambli", "tih":"Tihri", "tan":"Tandu", "riy":"Riyagarhi"};
-    var indicatorMapping = {"0":"Stock Required", "1":"Stock OK"};
-    var medMapping = {"p" : "paracetamol", 
-"c" : "cetirizine", 
-"a" : "acetaminophen", 
-"z" : "zincSulphate", 
-"ca" : "Calcium"}
-  var public_key = 'ZGoYlZXwRoCqpMNGON70';
-var TIMESTAMP_KEY = 'timestamp';
- $.ajax({
-   url: 'http://data.sparkfun.com/output/' + public_key + '.json',
-   jsonp: 'callback',
-   cache: true,
-   dataType: 'jsonp',
-   data: {
-     page: 1
-   },
-   success: function(response) {
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+        <script type="text/javascript">
+        var hcFullNameMapping = {"kam":"Kamand", "nav":"Navlay", "bal":"Balmand", "tri":"Triyambli", "tih":"Tihri", "tan":"Tandu", "riy":"Riyagarhi"};
+        var indicatorMapping = {"0":"Stock Required", "1":"Stock OK"};
+        var mdMapping = {
+        	"p" : "paracetamol", 
+	        "c" : "cetirizine", 
+	        "a" : "acetaminophen", 
+	        "z" : "zincSulphate", 
+	        "ca" : "Calcium"
+	    };
+        var public_key = 'ZGoYlZXwRoCqpMNGON70';
+        var TIMESTAMP_KEY = 'timestamp';
+        $.ajax({
+        url: 'http://data.sparkfun.com/output/' + public_key + '.json',
+        jsonp: 'callback',
+        cache: true,
+        dataType: 'jsonp',
+        data: {
+        page: 1
+        },
+        success: function(response) {
         $('.loading').hide();
-    $('.done-loading').show();
-     // response will be a javascript
-     // array of objects
-     console.log(response);
-      var tr;
-      var d;
+        $('.done-loading').show();
+        // response will be a javascript array of objects
+        console.log(response);
+        var tr;
+        var d;
+        var str = '';
         for (var i = 0; i < response.length; i++) {
-          d = new Date(response[i].ts);
-            tr = $('<tr/>');
-            tr.append("<td>" + hcMapping[response[i].hc] + "</td>");
-            tr.append("<td>" + indicatorMapping[response[i].i] + "</td>");
-            tr.append("<td>" + medMapping[response[i].stock] + "</td>");
-             tr.append("<td>" + d.toDateString() + "</td>");
-            $('table').append(tr);
+        	stockString = response[i].stock;
+        	stockTypeArray = stockString.match(/[a-zA-Z]+/g);
+        	stockQuantityArray = stockString.match(/\d+/g);
+        	console.log(stockTypeArray);
+        	console.log(stockQuantityArray);
+          	d = new Date(response[i].ts);
+            tr = $('#stock-table');
+            str = '<tr>';
+            str += "<td>" + (i+1) + "<\/td>";
+            str += "<td>" + hcFullNameMapping[response[i].hc] + "<\/td>";
+            if(stockTypeArray != null && stockTypeArray.length > 0)
+            	str += "<td " + 'class="show-details show-details-' + (i+1) +'"' + ">" + indicatorMapping[response[i].i] + "<\/td>";
+            else
+            	str += "<td>" + indicatorMapping[response[i].i] + "<\/td>";
+            str += "<td>" + d.getHours() + ":" + d.getMinutes() + " " + d.toDateString()  + "<\/td>";
+            str += "</tr>";
+            tr.append(str);
+
+            if(stockTypeArray != null && stockTypeArray.length > 0) {
+            	str =	"<tr " + 'class="details details-' + (i+1) +'"' + " >" +
+            				'<td colspan="2"></td>' +
+            				'<td colspan="1">' +
+		                		'<table>'	+	//Create a new table inside this cell
+		                    		'<tr>';
+            	str += "<th></th>";
+	            str += "<th> S. No. </th>";
+	            str += "<th> Stock Type</th>";
+	            str += "<th> Quantity</th>";
+	            str += "</tr>";
+	            for(var j = 0; j < stockTypeArray.length; j++) {
+	            	str += "<tr>";
+	            	str += "<td></td>";
+		            str += "<td>" + (j+1) + " </td>";
+		            str += "<td>" + mdMapping[stockTypeArray[j]] + "</td>";
+		            str += "<td>";
+		            if(stockQuantityArray != null)
+		            	str += stockQuantityArray[j];
+		            else
+		            	str += "unknown";
+		            str += "</td>";
+		            str += "</tr>";
+	            }
+	            str +=	'</table>' +
+	            		'<td colspan="1">' +
+	            		'</tr>';
+	            tr.append(str);
+            }
+            /*
+            var elem = $(this).next('.td1')
+        	elem.toggle('slow');*/
+	        $('.show-details-' + (i+1)).click(function(e) {
+	        	console.log($(this).closest('tr').next().slideToggle());
+	        	console.log(e);
+	        	//console.log($('.details-'));
+	        }) 
+	        $('.details').hide();
         }
 
-        
-   }
- });
-      
 
 
-    </script>
+        }
+        });
+
+
+        </script> 
+    </div>
+    <hr>
+	<footer>
+		<div id="footer" align="center">
+			<p>
+				&copy; 2016 ISTP IIT Mandi | All Rights Reserved
+			</div>
+		</footer>
+	</div>
+	<!--Main body division-->
 </body>
 </html>
