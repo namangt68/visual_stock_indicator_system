@@ -237,4 +237,22 @@ Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: GET,POST,DELETE
 Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
 Content-Type: text/plainAT+CIPSHUT
-success
+success{'i': '0', 'hc': 'tan', 'ts': '2015-03-02 02:32:58.444405\n', 'stock': 'p'}i=0&hc=tan&ts=2015-03-02+02%3A32%3A58.444405%0A&stock=p
+OK
+AT+CIFSR
+
+100.91.119.97
+AT+CIPSHUT
+
+SHUT OK
+failure
+OK
+AT+CIFSR
+
+100.100.54.229
+AT+CIPSHUT
+
+SHUT OK
+AT+CIFSR
+
+100.102.58.88

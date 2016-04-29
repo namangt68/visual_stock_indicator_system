@@ -16,7 +16,7 @@ import os
 import datetime
 scriptPath = os.path.dirname(os.path.realpath(__file__))
 
-sleep(1) #Give time to turn on the GSM Module and catch the network
+#sleep(60) #Give time to turn on the GSM Module and catch the network
 
 #This function will read list of health center from a text file  
 #Store it in dictionary of health center name and their assigned code.
@@ -27,15 +27,37 @@ hcFullNameMapping = {}
 for line in f:
     line = shlex.split(line.strip()) #Strip strips up whitespaces from beg and end of string; split splits the words by default on the basis of space
     hcMapping[line[1]] = line[2]
-    pinMapping[line[2]] = line[3]
+    pinMapping[line[2]] = [line[3], line[4], line[5]] #RGB LEDs pin
     hcFullNameMapping[line[1]] = line[0]
     GPIO.setup(line[3], GPIO.OUT, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(line[4], GPIO.OUT, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(line[5], GPIO.OUT, pull_up_down=GPIO.PUD_UP)
 f.close()
 #print hcMapping
 #print pinMapping
 #print hcFullNameMapping
-
-
+ledStatus = {}
+def readOldLedStatus():
+    fin = open(scriptPath + '/oldLedStatus')
+    for line in fin:
+        line = shlex.split(line.strip()) #Strip strips up whitespaces from beg and end of string; split splits the words by default on the basis of space
+        ledStatus[line[0]] = [line[1], line[2], line[3]] #RGB LEDs pin
+    fin.close()
+readOldLedStatus()
+print ledStatus
+def updateLedLights():
+    for key in ledStatus:
+        for i in range(0, 3):
+            if ledStatus[key][i] == '1':
+                GPIO.output(pinMapping[key][i], GPIO.HIGH)
+            else:
+                GPIO.output(pinMapping[key][i], GPIO.LOW)
+updateLedLights()
+def writeLedStatusToFile():
+    f = open(scriptPath + '/oldLedStatus', 'w+')
+    for key in ledStatus:
+        f.write(key + " " + ledStatus[key][0] + " " + ledStatus[key][1] + " " + ledStatus[key][2] + "\n")
+    f.close()
 #This function will read list of medicine from a text file  
 #Store it in a dictionary of medicine name and its assigned code.
 f = open(scriptPath + '/medicine_list.txt')
@@ -116,35 +138,57 @@ def handleSMS(sms) :
     msg = findMsg(sms)
     print "SMS msg is: "
     print msg
+    outSMS = 'Indicator turned '
     if 'help' in msg:
         print "Enter SMS in form #kam0 p for switching on indicator and paracetamol required."
         outSMS = 'Enter SMS in form #kam0 p for switching on indicator and paracetamol required.'
         sendSMS(phoneNum, outSMS)
     else:
         healthcentre = msg[:3]
-        medicine = msg[5]
-        stockDetails = msg[4:]
-        stockDetails = stockDetails.strip()
-        print "Stock details are: ",
-        print stockDetails
-        print hcMapping[healthcentre]
-        print mdMapping[medicine]
-        outSMS = 'Indicator turned '
-        if msg[3] == '0':
-            outSMS += 'ON for '
-            print pinMapping[hcMapping[healthcentre]]
-            GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.HIGH)
-        else:
+        if msg[3] == '1':
             outSMS += 'OFF for '
             print pinMapping[hcMapping[healthcentre]]
-            GPIO.output(pinMapping[hcMapping[healthcentre]], GPIO.LOW)
-        outSMS += hcFullNameMapping[healthcentre]
-        outSMS += ' healthcentre.'
-        outSMS += 'Required:'
-        outSMS += mdMapping[medicine]
-        sendSMS(phoneNum, outSMS)
-        indication = msg[3]
-        writeToFile(healthcentre, indication, stockDetails)
+            ledStatus[hcMapping[healthcentre]][0] = '0'
+            ledStatus[hcMapping[healthcentre]][1] = '1'
+            ledStatus[hcMapping[healthcentre]][2] = '0'
+            updateLedLights()
+            writeLedStatusToFile()
+            outSMS += hcFullNameMapping[healthcentre]
+            outSMS += ' healthcentre.'
+            #outSMS += 'Required:'
+            #outSMS += mdMapping[medicine]
+            sendSMS(phoneNum, outSMS)
+            #indication = msg[3]
+            #writeToFile(healthcentre, indication, stockDetails)
+        else:
+            medicine = msg[5]
+            stockDetails = msg[4:]
+            stockDetails = stockDetails.strip()
+            print "Stock details are: ",
+            print stockDetails
+            print hcMapping[healthcentre]
+            print mdMapping[medicine]
+            if msg[3] == '0':
+                outSMS += 'ON for '
+                print pinMapping[hcMapping[healthcentre]]
+                ledStatus[hcMapping[healthcentre]][0] = '1'
+                ledStatus[hcMapping[healthcentre]][1] = '0'
+                ledStatus[hcMapping[healthcentre]][2] = '0'
+            else:
+                outSMS += 'OFF for '
+                print pinMapping[hcMapping[healthcentre]]
+                ledStatus[hcMapping[healthcentre]][0] = '0'
+                ledStatus[hcMapping[healthcentre]][1] = '1'
+                ledStatus[hcMapping[healthcentre]][2] = '0'
+            updateLedLights()
+            writeLedStatusToFile()
+            outSMS += hcFullNameMapping[healthcentre]
+            outSMS += ' healthcentre.'
+            outSMS += 'Required:'
+            outSMS += mdMapping[medicine]
+            sendSMS(phoneNum, outSMS)
+            indication = msg[3]
+            writeToFile(healthcentre, indication, stockDetails)
 
 while True :
 	sms = ser.read(10000)		#@TODO: Handle the case when only half of message is read in

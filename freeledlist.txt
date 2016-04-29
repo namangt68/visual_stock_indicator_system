@@ -1,0 +1,21 @@
+Working led for P8
+7
+8
+9
+10
+11
+12(1 out times worked)
+13-19
+26-46
+
+
+Working led for P9
+11
+13-16
+21-23
+-----------
+25
+27
+28-31
+41-42
+
