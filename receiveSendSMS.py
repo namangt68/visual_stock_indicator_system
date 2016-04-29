@@ -160,51 +160,48 @@ def handleSMS(sms) :
         sendSMS(phoneNum, outSMS)
         return
     
-    if msg[3] == '1':   #Indicating that LED needs to be turned off
+    indication = msg[3]
+    stockString = ''    #To indicate no stock required especially for the case withi indication '1'
+    if indication == '1':   #Indicating that LED needs to be turned off
         outSMS += 'OFF for '
-        print pinMapping[hcMapping[healthcentre]]
         ledStatus[hcMapping[healthcentre]][0] = '0' #Note that it is in string form
         ledStatus[hcMapping[healthcentre]][1] = '1'
         ledStatus[hcMapping[healthcentre]][2] = '0'
-        updateLedLights()
-        writeLedStatusToFile()
         outSMS += hcFullNameMapping[healthcentre]
         outSMS += ' healthcentre.'
-        #outSMS += 'Required:'
-        #outSMS += mdMapping[medicine]
-        sendSMS(phoneNum, outSMS)
-        #indication = msg[3]
-        #writeToFile(healthcentre, indication, stockDetails)
-    else:
-        medicine = msg[5]
-        stockDetails = msg[4:]
-        stockDetails = stockDetails.strip()
-        print "Stock details are: ",
-        print stockDetails
-        print hcMapping[healthcentre]
-        print mdMapping[medicine]
-        if msg[3] == '0':
-            outSMS += 'ON for '
-            print pinMapping[hcMapping[healthcentre]]
-            ledStatus[hcMapping[healthcentre]][0] = '1'
-            ledStatus[hcMapping[healthcentre]][1] = '0'
-            ledStatus[hcMapping[healthcentre]][2] = '0'
-        else:
-            outSMS += 'OFF for '
-            print pinMapping[hcMapping[healthcentre]]
-            ledStatus[hcMapping[healthcentre]][0] = '0'
-            ledStatus[hcMapping[healthcentre]][1] = '1'
-            ledStatus[hcMapping[healthcentre]][2] = '0'
-        updateLedLights()
-        writeLedStatusToFile()
-        outSMS += hcFullNameMapping[healthcentre]
-        outSMS += ' healthcentre.'
-        outSMS += 'Required:'
-        outSMS += mdMapping[medicine]
-        sendSMS(phoneNum, outSMS)
-        indication = msg[3]
-        writeToFile(healthcentre, indication, stockDetails)
+        
+    elif indication == '0':  #Indicating LED needs to be turned on
+        stockString = msg[4:]
+        stockTypeArray = re.findall(r'[a-zA-Z]+', stockString)
+        stockQuantityArray = re.findall(r'\d+', stockString)
+        #@TODO case when stock quantity for a stock type is not given
 
+        outSMS += 'ON for '
+        outSMS += hcFullNameMapping[healthcentre]
+        outSMS += ' healthcentre. '
+        outSMS += 'Stock Requested: '
+        
+        for i in range(0, len(stockTypeArray)):
+            outSMS += mdMapping[stockTypeArray[i]]
+            outSMS += ": "
+            outSMS += stockQuantityArray[i]
+            if not (i == len(stockTypeArray) - 1) :#i.e. if not last medicine stock
+                outSMS += ", "
+
+        ledStatus[hcMapping[healthcentre]][0] = '1' #Red
+        ledStatus[hcMapping[healthcentre]][1] = '0' #Green
+        ledStatus[hcMapping[healthcentre]][2] = '0' #Blue
+
+    else:   #Wrong indication entered
+        outSMS = 'Please enter 0 to indicate stock required ors 1 to indicate stock OK after healthcenter name. e.g. #kam0 p100 a980'
+        sendSMS(phoneNum, outSMS)
+        return
+    
+    updateLedLights()
+    writeLedStatusToFile()
+    writeToFile(healthcentre, indication, "".join(stockString.split()))
+    sendSMS(phoneNum, outSMS)
+    
 
 
 while True :
