@@ -44,7 +44,7 @@ def readOldLedStatus():
         ledStatus[line[0]] = [line[1], line[2], line[3]] #RGB LEDs pin
     fin.close()
 readOldLedStatus()
-print ledStatus
+#print ledStatus
 def updateLedLights():
     for key in ledStatus:
         for i in range(0, 3):
@@ -66,7 +66,7 @@ for line in f:
     line = shlex.split(line.strip()) #Strip strips up whitespaces from beg and end of string; split splits the words by default on the basis of space
     mdMapping[line[1]] = line[2]
 f.close()
-print mdMapping
+#print mdMapping
 
 ser = serial.Serial('/dev/ttyO1', 9600, timeout = 1)
 ser.write('AT+CMGF=1\r\n')
@@ -129,13 +129,13 @@ def writeToFile(healthcentre, indication, stockDetails) :
     fout.close()
 
 def handleSMS(sms) :
-    print "SMS received"
+    print "Received SMS is: "
     print sms
     delSMS()
     phoneNum = findPhoneNum(sms)
     print "The phone num found is: ",
     print phoneNum
-    msg = findMsg(sms)
+    msg = findMsg(sms)  #Gives SMS content after #
     print "SMS msg is: "
     print msg
     outSMS = 'Indicator turned '
