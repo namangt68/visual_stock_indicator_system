@@ -129,70 +129,87 @@ def writeToFile(healthcentre, indication, stockDetails) :
     fout.close()
 
 def handleSMS(sms) :
-    print "Received SMS is: "
+    print "Handling the following SMS:"
     print sms
-    delSMS()
-    phoneNum = findPhoneNum(sms)
-    print "The phone num found is: ",
-    print phoneNum
-    msg = findMsg(sms)  #Gives SMS content after #
-    print "SMS msg is: "
+    
+    delSMS()        #Delete all SMSes from SIM including the one just received
+    
+    phoneNum = findPhoneNum(sms)    #Extract phone num from SMS
+    if(phoneNum == ''):
+        print "Phone number not found. Returning"
+        return
+    
+    msg = findMsg(sms)  #Gives SMS content after #@TODO handle without # sms exception
+    print "SMS content after # is: "
     print msg
-    outSMS = 'Indicator turned '
+    
+    
     if 'help' in msg:
-        print "Enter SMS in form #kam0 p for switching on indicator and paracetamol required."
         outSMS = 'Enter SMS in form #kam0 p for switching on indicator and paracetamol required.'
         sendSMS(phoneNum, outSMS)
+        return
+    
+    outSMS = 'Indicator turned ' #Constructing the SMS that would be sent 
+    
+    healthcentre = msg[:3]  #Get the name of healthcentre which sent the msg
+    try:
+        hcMapping[healthcentre]
+    except:
+        print "Healthcenter not found."
+        outSMS = 'Please enter correct healthcenter name'
+        sendSMS(phoneNum, outSMS)
+        return
+    
+    if msg[3] == '1':   #Indicating that LED needs to be turned off
+        outSMS += 'OFF for '
+        print pinMapping[hcMapping[healthcentre]]
+        ledStatus[hcMapping[healthcentre]][0] = '0' #Note that it is in string form
+        ledStatus[hcMapping[healthcentre]][1] = '1'
+        ledStatus[hcMapping[healthcentre]][2] = '0'
+        updateLedLights()
+        writeLedStatusToFile()
+        outSMS += hcFullNameMapping[healthcentre]
+        outSMS += ' healthcentre.'
+        #outSMS += 'Required:'
+        #outSMS += mdMapping[medicine]
+        sendSMS(phoneNum, outSMS)
+        #indication = msg[3]
+        #writeToFile(healthcentre, indication, stockDetails)
     else:
-        healthcentre = msg[:3]
-        if msg[3] == '1':
+        medicine = msg[5]
+        stockDetails = msg[4:]
+        stockDetails = stockDetails.strip()
+        print "Stock details are: ",
+        print stockDetails
+        print hcMapping[healthcentre]
+        print mdMapping[medicine]
+        if msg[3] == '0':
+            outSMS += 'ON for '
+            print pinMapping[hcMapping[healthcentre]]
+            ledStatus[hcMapping[healthcentre]][0] = '1'
+            ledStatus[hcMapping[healthcentre]][1] = '0'
+            ledStatus[hcMapping[healthcentre]][2] = '0'
+        else:
             outSMS += 'OFF for '
             print pinMapping[hcMapping[healthcentre]]
             ledStatus[hcMapping[healthcentre]][0] = '0'
             ledStatus[hcMapping[healthcentre]][1] = '1'
             ledStatus[hcMapping[healthcentre]][2] = '0'
-            updateLedLights()
-            writeLedStatusToFile()
-            outSMS += hcFullNameMapping[healthcentre]
-            outSMS += ' healthcentre.'
-            #outSMS += 'Required:'
-            #outSMS += mdMapping[medicine]
-            sendSMS(phoneNum, outSMS)
-            #indication = msg[3]
-            #writeToFile(healthcentre, indication, stockDetails)
-        else:
-            medicine = msg[5]
-            stockDetails = msg[4:]
-            stockDetails = stockDetails.strip()
-            print "Stock details are: ",
-            print stockDetails
-            print hcMapping[healthcentre]
-            print mdMapping[medicine]
-            if msg[3] == '0':
-                outSMS += 'ON for '
-                print pinMapping[hcMapping[healthcentre]]
-                ledStatus[hcMapping[healthcentre]][0] = '1'
-                ledStatus[hcMapping[healthcentre]][1] = '0'
-                ledStatus[hcMapping[healthcentre]][2] = '0'
-            else:
-                outSMS += 'OFF for '
-                print pinMapping[hcMapping[healthcentre]]
-                ledStatus[hcMapping[healthcentre]][0] = '0'
-                ledStatus[hcMapping[healthcentre]][1] = '1'
-                ledStatus[hcMapping[healthcentre]][2] = '0'
-            updateLedLights()
-            writeLedStatusToFile()
-            outSMS += hcFullNameMapping[healthcentre]
-            outSMS += ' healthcentre.'
-            outSMS += 'Required:'
-            outSMS += mdMapping[medicine]
-            sendSMS(phoneNum, outSMS)
-            indication = msg[3]
-            writeToFile(healthcentre, indication, stockDetails)
+        updateLedLights()
+        writeLedStatusToFile()
+        outSMS += hcFullNameMapping[healthcentre]
+        outSMS += ' healthcentre.'
+        outSMS += 'Required:'
+        outSMS += mdMapping[medicine]
+        sendSMS(phoneNum, outSMS)
+        indication = msg[3]
+        writeToFile(healthcentre, indication, stockDetails)
+
+
 
 while True :
-	sms = ser.read(10000)		#@TODO: Handle the case when only half of message is read in
-	sys.stdout.write(sms)		#To print sms without newline
-	sleep(1)					#Sleep time is more in order to make it more likely that full SMS is read by ser.read()
-	if "CMT" in sms:
-		handleSMS(sms)
+	gsmRead = ser.read(10000)		#@TODO: Handle the case when only half of message is read in
+	sys.stdout.write(gsmRead)		#To print sms without newline
+	sleep(1)	    				#Sleep time is more in order to make it more likely that full SMS is read by ser.read()
+	if "CMT" in gsmRead:            #CMT indicates that an SMS is received    
+		handleSMS(gsmRead)
