@@ -4,4 +4,8 @@ There can be only three following types of VALID SMSes:
 3) "#<valid HC name>0<stock info>":
 
 Invalid SMSes:
-1)Starting without #: A reply SMS is sent asking to send SMS which starts with a '#' character
+1) Starting without #: A reply SMS is sent asking to send SMS which starts with a '#' character
+2) Wrong HC name: A reply SMS is sent asking to send correct HC name
+3) 5th character not 0 or 1 (when it is not a help msg): A reply SMS is sent asking to send 0 or 1 at 5th place
+4) #<HC code>0<Stock Info>: Stock Info MUST be like this: Stock code followed by quantiy. This can be repeated any number of times. e.g.
+" p100 c90 z57 ca1000" (Spacing is not compulsory). NOTE: quantiy must be entered after Stock Code.
