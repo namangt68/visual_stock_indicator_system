@@ -1,4 +1,4 @@
-#! /usr/bin python
+#! /usr/bin/python
 ####################################################################
 # phant-loggerGSM.py
 # Logs data to phant from a file

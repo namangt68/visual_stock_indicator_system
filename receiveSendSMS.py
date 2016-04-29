@@ -1,4 +1,4 @@
-#! /usr/bin python
+#! /usr/bin/python
 ####################################################################
 # receiveSMS.py
 # Received and displays the SMS
