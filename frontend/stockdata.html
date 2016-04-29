@@ -14,6 +14,7 @@
         {
             border: 1px solid #ccc;
             border-collapse: collapse;
+            width: 100%
         }
         table th
         {
@@ -30,25 +31,37 @@
 </head>
 <body>
     <div class="container">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row"><div class="col-md-2">       <a href="stockdata.html" title="IIT Mandi Home"><img src="finallogo.png" class="img-responsive" alt="logo" ></a>
+</div>
+      <div class="col-md-10"><br>
         <h1>Medical Stock Data</h1>
         <p class="loading">Loading...</p>
         <p class="done-loading" style="display: none;">Health Center wise stock status is shown below:</p>
-    <hr />
+            </div>
+    <div class="row">
+      <div class="col-md-12">
+
 <table>
     <tr>
         <th>Health Center Name</th>
         <th>Stock Availability</th>
         <th>Required stock type</th>
         <th>Stock Request time</th>
+                <th>Quantity</th>
+                
     </tr>
 </table>    </div>
     </div>
   </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript">
-
+    var hcMapping = {"kam":"Kamand", "nav":"Navlay", "bal":"Balmand", "tri":"Triyambli", "tih":"Tihri", "tan":"Tandu", "riy":"Riyagarhi"};
+    var indicatorMapping = {"0":"Stock Required", "1":"Stock OK"};
+    var medMapping = {"p" : "paracetamol", 
+"c" : "cetirizine", 
+"a" : "acetaminophen", 
+"z" : "zincSulphate", 
+"ca" : "Calcium"}
   var public_key = 'ZGoYlZXwRoCqpMNGON70';
 var TIMESTAMP_KEY = 'timestamp';
  $.ajax({
@@ -66,12 +79,14 @@ var TIMESTAMP_KEY = 'timestamp';
      // array of objects
      console.log(response);
       var tr;
+      var d;
         for (var i = 0; i < response.length; i++) {
+          d = new Date(response[i].ts);
             tr = $('<tr/>');
-            tr.append("<td>" + response[i].hc + "</td>");
-            tr.append("<td>" + response[i].i + "</td>");
-            tr.append("<td>" + response[i].stock + "</td>");
-             tr.append("<td>" + response[i].ts + "</td>");
+            tr.append("<td>" + hcMapping[response[i].hc] + "</td>");
+            tr.append("<td>" + indicatorMapping[response[i].i] + "</td>");
+            tr.append("<td>" + medMapping[response[i].stock] + "</td>");
+             tr.append("<td>" + d.toDateString() + "</td>");
             $('table').append(tr);
         }
 
