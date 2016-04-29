@@ -1,0 +1,7 @@
+There can be only three following types of VALID SMSes:
+1) "#help" or any message starting with "#" and containing help in it: The response to such an SMS will be simply a reply containing instructions on how to send an SMS. State of the VSIS system won't change bcos of this (i.e. no LED change color and no upload entry)
+2) "#<valid HC name>1<anything here>": Will turn the corresponding HC's LED green indicating Stock OK
+3) "#<valid HC name>0<stock info>":
+
+Invalid SMSes:
+1)Starting without #: A reply SMS is sent asking to send SMS which starts with a '#' character
