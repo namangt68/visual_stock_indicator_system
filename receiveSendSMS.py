@@ -16,7 +16,7 @@ import os
 import datetime
 scriptPath = os.path.dirname(os.path.realpath(__file__))
 
-#sleep(60) #Give time to turn on the GSM Module and catch the network
+sleep(60) #Give time to turn on the GSM Module and catch the network
 
 #This function will read list of health center from a text file  
 #Store it in dictionary of health center name and their assigned code.
@@ -70,6 +70,10 @@ f.close()
 
 ser = serial.Serial('/dev/ttyO1', 9600, timeout = 1)
 ser.write('AT+CMGF=1\r\n')
+sleep(0.2)
+print ser.read(100)
+
+ser.write('AT+GSMBUSY=1\r\n')   #Disables all incoming call
 sleep(0.2)
 print ser.read(100)
 

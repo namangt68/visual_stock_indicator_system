@@ -20,8 +20,6 @@ import time
 from bash import bash
 script_dir = os.path.dirname(os.path.realpath(__file__))  #Get the directory where this script is located
 log = open(script_dir + "/log", 'a', 1)
-def setTime(s):
-	return
 
 def gsmupload(privateKey, publicKey, params): 	#Tries to upload the data
 	#b = str(bash("ls /dev | grep ttyUSB | head -n 1").value())
@@ -111,7 +109,6 @@ def gsmupload(privateKey, publicKey, params): 	#Tries to upload the data
 	print z
 	s = s + x + y + z
 	log.write(s)
-	setTime(s)	#Sets time of RTC module if not already set in this session
 	if "1 success" in s or "200 OK" in s or "SEND OK" in s:
 		response = "success"
 	else:
@@ -133,9 +130,9 @@ def gsmupload(privateKey, publicKey, params): 	#Tries to upload the data
 #Get the line to be uploaded next. If file not found lineToBeUploadedNext will be 0. (This line to be uploaded is located in another file named weatherLocalCopy.data)
 lineToBeUploadedNextFile = os.path.join(script_dir, "lineToBeUploadedNext.txt")
 if os.path.isfile(lineToBeUploadedNextFile) : #True if file exists
-	with open(lineToBeUploadedNextFile) as numberFile: #Default open mode is read
-		lineToBeUploadedNext = int(numberFile.read())
-		numberFile.close()
+	numberFile = open(lineToBeUploadedNextFile) #Default open mode is read
+	lineToBeUploadedNext = int(numberFile.read())
+	numberFile.close()
 else :
 	lineToBeUploadedNext = 0
 
@@ -149,76 +146,42 @@ server = "54.86.132.254" # This is the IP of data.sparkfun.com. Using IP instead
 publicKey = "ZGoYlZXwRoCqpMNGON70"
 privateKey = "2mMjEV69NMc9NnpboprE" 
 
-#Calls the script which resets the GSM Module.
-def resetGSMModule():
-	return
-	print "Resetting GSM Module"
-	log.write("Resetting GSM Module\n")
-	bash("sudo python /home/pi/weatherStation/resetGSM.py pl2303")
-
-#Turns off the GSM Module and starts it back again
-def restartGSMModule():
-	return
-	print "(Presumably) Shutting off GSM Module"
-	ser = serial.Serial('/dev/ttyAMA0', 9600, timeout = 1)
-	ser.flush()
-	ser.flushInput()
-	ser.flushInput()
-	ser.flushInput() #I feel there is need of more flushing as sometimes th$
-	ser.flushOutput()
-	time.sleep(1)
-	bash("/home/pi/weatherStation/startGSMModule.py")
-	sleep(0.1)
-	resp = ser.read(200)
-	print resp
-	log.write(resp)
-	if "DOWN" in resp: #i.e. it contains NORMAL POWER DOWN
-		log.write("GSM Module successfully NORMALLY POWERED DOWN")
-		sleep(5)
-		bash("/home/pi/weatherStation/startGSMModule.py")
-		sleep(30)
-	else:
-		print "Looks like GSM Module was already turned off and now is turned on"
-		log.write("Looks like GSM Module was already turned off and now is turned on")
-		sleep(30)
-	ser.close()
-	return
-
 ############################################
 ##Read sensor data from file and upload it##
 ############################################
 data = {}
 fields = ["hc", "i", "stock", "ts"] # Weather fields
 recordsFile = os.path.join(script_dir, "records")
-with open(recordsFile) as f:
-	for i, line in enumerate(f):
-		if i >= lineToBeUploadedNext:
-			print "Value of i is: " + str(i)
-			array = line.split(',')
-			print array
-			for j in range(0, len(fields)):
-				data[fields[j]] = array[j] #In Phant all data is logged as String. Source: http://phant.io/docs/input/http/
-			params = urllib.urlencode(data)
-			print data
-		        log.write(str(data))
-			print params
-		        log.write(params)
+
+f = open(recordsFile)
+for i, line in enumerate(f):
+	if i >= lineToBeUploadedNext:
+		print "Value of i is: " + str(i)
+		array = line.split(',')
+		print array
+		for j in range(0, len(fields)):
+			data[fields[j]] = array[j] #In Phant all data is logged as String. Source: http://phant.io/docs/input/http/
+		params = urllib.urlencode(data)
+		print data
+	        log.write(str(data))
+		print params
+	        log.write(params)
+		response = gsmupload(privateKey, publicKey, params)
+		print response
+	        log.write(response)
+		count = 0
+		resetCount = 0
+		while not response == "success" :
 			response = gsmupload(privateKey, publicKey, params)
-			print response
-		        log.write(response)
-			count = 0
-			resetCount = 0
-			while not response == "success" :
-				response = gsmupload(privateKey, publicKey, params)
-				count += 1
-				if count > 3:
-					resetGSMModule() #Simulating ejecting and reinserting the module if even after 3 times data is not uploaded
-					resetCount += 1
-					if (resetCount > 3):
-						print "Going to restart GSM Module" #Power off and power on GSM Module if after lot of tries data is not uploaded
-						restartGSMModule()
-			lineToBeUploadedNext += 1
-			fp = open(lineToBeUploadedNextFile, 'w', 0)	#Update the line to be uploaded next
-			fp.write(str(lineToBeUploadedNext)) #Doubt as to what will happen when power goess off at this line
-			fp.close()
-	f.close()
+			count += 1
+			if count > 3:
+				resetGSMModule() #Simulating ejecting and reinserting the module if even after 3 times data is not uploaded
+				resetCount += 1
+				if (resetCount > 3):
+					print "Going to restart GSM Module" #Power off and power on GSM Module if after lot of tries data is not uploaded
+					restartGSMModule()
+		lineToBeUploadedNext += 1
+		fp = open(lineToBeUploadedNextFile, 'w', 0)	#Update the line to be uploaded next
+		fp.write(str(lineToBeUploadedNext)) #Doubt as to what will happen when power goess off at this line
+		fp.close()
+f.close()

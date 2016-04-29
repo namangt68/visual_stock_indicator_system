@@ -256,3 +256,79 @@ SHUT OK
 AT+CIFSR
 
 100.102.58.88
+{'i': '1', 'hc': 'nav', 'ts': '2016-04-29 22:26:38.457212\n', 'stock': ''}i=1&hc=nav&ts=2016-04-29+22%3A26%3A38.457212%0A&stock=AT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.100.238.111
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plain
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plainAT+CIPSHUT
+{'i': '0', 'hc': 'nav', 'ts': '2016-04-29 22:24:56.096031\n', 'stock': 'p100a980z657'}i=0&hc=nav&ts=2016-04-29+22%3A24%3A56.096031%0A&stock=p100a980z657AT+CIPSHUT
+
+SHUT OK
+AT+CSTT="airtelgprs.com","",""
+
+OK
+AT+CIICR
+
+OK
+AT+CIFSR
+
+100.100.143.133
+AT+CIPSTART="TCP","54.86.132.254","80"
+
+OK
+
+CONNECT OK
+AT+CIPSEND
+
+> AT+CIPSEND
+
+> GET /input/ZGoYlZXwRoCqpMNGON70?private_key=2mMjEV
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plain
++CRING: VOICE
+
++CLIP: "+919736260845",145,"",,"",0
+
+SEND OK
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,DELETE
+Access-Control-Allow-Headers: X-Requested-With, Phant-Private-Key
+Content-Type: text/plain
++CRING: VOICE
+
++CLIP: "+919736260845",145,"",,"",0
+AT+CIPSHUT
