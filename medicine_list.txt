@@ -2,4 +2,4 @@
 2 c cetirizine 
 3 a acetaminophen 
 4 z zincSulphate 
-5 i ipill
+5 ca Calcium
