@@ -43,7 +43,7 @@
                 <br>
                 <h1>Medical Stock Data</h1>
                 <p class="loading">Loading...</p>
-                <p class="done-loading" style="display: none;">Health Center wise stock status is shown below:</p>
+                <p class="done-loading" style="display: none;">Health Center wise stock status is shown below: (Click on stock required button for details)</p>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -64,7 +64,7 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
         <script type="text/javascript">
         var hcFullNameMapping = {"kam":"Kamand", "nav":"Navlay", "bal":"Balmand", "tri":"Triyambli", "tih":"Tihri", "tan":"Tandu", "riy":"Riyagarhi"};
-        var indicatorMapping = {"0":"Stock Required", "1":"Stock OK"};
+        var indicatorMapping = {"0":"<button>Stock Required</button>", "1":"Stock OK"};
         var mdMapping = {
         	"p" : "paracetamol", 
 	        "c" : "cetirizine", 
@@ -82,6 +82,7 @@
         data: {
         page: 1
         },
+
         success: function(response) {
         $('.loading').hide();
         $('.done-loading').show();
@@ -152,6 +153,7 @@
 
 
         }
+        
         });
 
 
