@@ -1,10 +1,7 @@
 #! /usr/bin python
 ####################################################################
-# sendSMS.py
-# Send the SMS 
-# Gopal Krishan Aggarwal
-# April 22, 2016
-# Contact: gopalkriagg@gmail.com
+# Naman Gupta
+# Contact: namangt68@gmail.com
 # Description: Test LEDs of vsis 
 ########################################################################
 from time import sleep
