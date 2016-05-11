@@ -1,0 +1,11 @@
+There can be only three following types of VALID SMSes:
+1) "#help" or any message starting with "#" and containing help in it: The response to such an SMS will be simply a reply containing instructions on how to send an SMS. State of the VSIS system won't change bcos of this (i.e. no LED change color and no upload entry)
+2) "#<valid HC name>1<anything here>": Will turn the corresponding HC's LED green indicating Stock OK
+3) "#<valid HC name>0<stock info>":
+
+Invalid SMSes:
+1) Starting without #: A reply SMS is sent asking to send SMS which starts with a '#' character
+2) Wrong HC name: A reply SMS is sent asking to send correct HC name
+3) 5th character not 0 or 1 (when it is not a help msg): A reply SMS is sent asking to send 0 or 1 at 5th place
+4) #<HC code>0<Stock Info>: Stock Info MUST be like this: Stock code followed by quantiy. This can be repeated any number of times. e.g.
+" p100 c90 z57 ca1000" (Spacing is not compulsory). NOTE: quantiy must be entered after Stock Code.

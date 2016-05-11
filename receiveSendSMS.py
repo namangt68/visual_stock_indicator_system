@@ -146,14 +146,17 @@ def handleSMS(sms) :
     msg = findMsg(sms)  #Gives SMS content after #@TODO handle without # sms exception
     print "SMS content after # is: "
     print msg
-    
+    if(msg == ''):
+        outSMS = 'SMS must start with a hash character like #kam0 p100 c90'
+        sendSMS(phoneNum, outSMS)
+        return
     
     if 'help' in msg:
         outSMS = 'Enter SMS in form #kam0 p for switching on indicator and paracetamol required.'
         sendSMS(phoneNum, outSMS)
         return
     
-    outSMS = 'Indicator turned ' #Constructing the SMS that would be sent 
+    outSMS = 'Indicator turned '	#Constructing the SMS that would be sent 
     
     healthcentre = msg[:3]  #Get the name of healthcentre which sent the msg
     try:
