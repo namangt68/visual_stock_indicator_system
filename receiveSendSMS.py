@@ -16,7 +16,7 @@ import os
 import datetime
 scriptPath = os.path.dirname(os.path.realpath(__file__))
 
-sleep(60) #Give time to turn on the GSM Module and catch the network
+sleep(30) #Give time to turn on the GSM Module and catch the network
 
 #This function will read list of health center from a text file  
 #Store it in dictionary of health center name and their assigned code.

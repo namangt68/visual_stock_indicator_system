@@ -1,0 +1,799 @@
+AT+CMGF=1
+
+OK
+
+AT+GSMBUSY=1
+
+OK
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+AT+CNMI=2,2,0,0,0
+
+OK
+
+
++CMT: "+918628908970","","16/05/01,10:22:52+22"
+#riy1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:22:52+22"
+#riy1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+riy1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Riyagri healthcentre.
++CMGS: 140
+
+OK
+
++CMT: "+918628908970","","16/05/01,10:25:57+22"
+#bal0 a50p25
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:25:57+22"
+#bal0 a50p25
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+bal0 a50p25
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Balmand healthcentre. Stock Requested: acetaminophen: 50, paracetamol: 25
++CMGS: 141
+
+OK
+
++CMT: "+918628908970","","16/05/01,10:27:02+22"
+#bal1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:27:02+22"
+#bal1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+bal1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Balmand healthcentre.
++CMGS: 142
+
+OK
+
++CMT: "AD-AIRMTA","","16/05/01,10:27:10+22"
+Recharge done on 01-May-16 10:27 AM,MRP:Rs15.00,PF:13.10,Revised STax:Rs1.90,Talktime:Rs0.00,Balance:Rs123.12,TransID:2144866887,Benefit:All call @ 1.2p/
+
++CMT: "AD-AIRMTA","","16/05/01,10:27:11+22"
+sec,validity 1 day,Free Music on Airtel.Click http://wynk.in/mu/HP
+Handling the following SMS:
+
++CMGS: 142
+
+OK
+
++CMT: "AD-AIRMTA","","16/05/01,10:27:10+22"
+Recharge done on 01-May-16 10:27 AM,MRP:Rs15.00,PF:13.10,Revised STax:Rs1.90,Talktime:Rs0.00,Balance:Rs123.12,TransID:2144866887,Benefit:All call @ 1.2p/
+
++CMT: "AD-AIRMTA","","16/05/01,10:27:11+22"
+sec,validity 1 day,Free Music on Airtel.Click http://wynk.in/mu/HP
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+Phone number not found. Returning
+
++CMT: "+918628908970","","16/05/01,10:34:39+22"
+#tan0 a50
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:34:39+22"
+#tan0 a50
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+tan0 a50
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Tandu healthcentre. Stock Requested: acetaminophen: 50
++CMGS: 143
+
+OK
+
++CMT: "+918628908970","","16/05/01,10:39:14+22"
+#nav0 c65
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:39:14+22"
+#nav0 c65
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+nav0 c65
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Navlay healthcentre. Stock Requested: cetirizine: 65
++CMGS: 144
+
+OK
+
++CMT: "+918628908970","","16/05/01,10:40:59+22"
+#kam1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:40:59+22"
+#kam1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Kamand healthcentre.
++CMGS: 145
+
+OK
+
++CMT: "+918628908970","","16/05/01,10:41:22+22"
+#nav1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:41:22+22"
+#nav1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+nav1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Navlay healthcentre.
++CMGS: 146
+
+OK
+
++CMT: "+918628908970","","16/05/01,10:42:08+22"
+#kam0 p50
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:42:08+22"
+#kam0 p50
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam0 p50
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Kamand healthcentre. Stock Requested: paracetamol: 50
++CMGS: 147
+
+OK
+
++CMT: "+918628908970","","16/05/01,10:52:51+22"
+#kam1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,10:52:51+22"
+#kam1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Kamand healthcentre.
++CMGS: 148
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:00:13+22"
+#kam0 p40c70
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:00:13+22"
+#kam0 p40c70
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam0 p40c70
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Kamand healthcentre. Stock Requested: paracetamol: 40, cetirizine: 70
++CMGS: 149
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:03:22+22"
+#kam1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:03:22+22"
+#kam1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Kamand healthcentre.
++CMGS: 150
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:08:56+22"
+#nav0 p30 c60
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:08:56+22"
+#nav0 p30 c60
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+nav0 p30 c60
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Navlay healthcentre. Stock Requested: paracetamol: 30, cetirizine: 60
++CMGS: 151
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:11:19+22"
+#nav1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:11:19+22"
+#nav1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+nav1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Navlay healthcentre.
++CMGS: 152
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:16:45+22"
+#kam0 a50 p80
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:16:45+22"
+#kam0 a50 p80
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam0 a50 p80
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Kamand healthcentre. Stock Requested: acetaminophen: 50, paracetamol: 80
++CMGS: 153
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:17:53+22"
+#kam1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:17:53+22"
+#kam1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Kamand healthcentre.
++CMGS: 154
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:18:44+22"
+#bal0 a60 c40
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:18:44+22"
+#bal0 a60 c40
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+bal0 a60 c40
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Balmand healthcentre. Stock Requested: acetaminophen: 60, cetirizine: 40
++CMGS: 155
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:21:36+22"
+#riy0 c70 a35
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:21:36+22"
+#riy0 c70 a35
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+riy0 c70 a35
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Riyagri healthcentre. Stock Requested: cetirizine: 70, acetaminophen: 35
++CMGS: 156
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:28:13+22"
+#kam0 a65 p25
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:28:13+22"
+#kam0 a65 p25
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam0 a65 p25
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Kamand healthcentre. Stock Requested: acetaminophen: 65, paracetamol: 25
++CMGS: 157
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:29:10+22"
+#kam1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:29:10+22"
+#kam1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Kamand healthcentre.
++CMGS: 158
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:30:05+22"
+#riy1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:30:05+22"
+#riy1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+riy1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Riyagri healthcentre.
++CMGS: 159
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:37:48+22"
+#kam0 a55 p66
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:37:48+22"
+#kam0 a55 p66
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam0 a55 p66
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Kamand healthcentre. Stock Requested: acetaminophen: 55, paracetamol: 66
++CMGS: 160
+
+OK
+
++CMT: "+918628908970","","16/05Handling the following SMS:
+
++CMT: "+918628908970","","16/05
+/01,11:44:56+22"
+#riy0 c80 p30
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+
+Healthcenter not found.
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Please enter correct healthcenter name
++CMGS: 161
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:46:07+22"
+#nav0 c76 p67
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:46:07+22"
+#nav0 c76 p67
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+nav0 c76 p67
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Navlay healthcentre. Stock Requested: cetirizine: 76, paracetamol: 67
++CMGS: 162
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:49:19+22"
+#bal1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:49:19+22"
+#bal1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+bal1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Balmand healthcentre.
++CMGS: 163
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:49:40+22"
+#kam1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:49:40+22"
+#kam1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Kamand healthcentre.
++CMGS: 164
+
+OK
+
++CMT: "+918628908970","","16/05/01,11:53:11+22"
+#kam0 p30 c80
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,11:53:11+22"
+#kam0 p30 c80
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam0 p30 c80
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Kamand healthcentre. Stock Requested: paracetamol: 30, cetirizine: 80
++CMGS: 165
+
+OK
+
++CMT: "+918628908970","","16/05/01,12:06:54+22"
+#tri0 a50
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,12:06:54+22"
+#tri0 a50
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+tri0 a50
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned ON for Triyambli healthcentre. Stock Requested: acetaminophen: 50
++CMGS: 166
+
+OK
+
++CMT: "+918628908970","","16/05/01,12:07:53+22"
+#tan1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,12:07:53+22"
+#tan1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+tan1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Tandu healthcentre.
++CMGS: 167
+
+OK
+
++CMT: "+918628908970","","16/05/01,12:08:30+22"
+#kam1
+Handling the following SMS:
+
++CMT: "+918628908970","","16/05/01,12:08:30+22"
+#kam1
+
+AT+CMGDA="DEL ALL"
+
+OK
+
+
+Deleted all SMSes
+SMS content after # is: 
+kam1
+Sending SMS to  8628908970
+AT+CMGF=1
+
+OK
+AT+CMGS="+918628908970"
+
+> Indicator turned OFF for Kamand healthcentre.
++CMGS: 168
+
+OK
+
++CMT: "+918628908970","","16/05/01,12:11:27+22"
+#
