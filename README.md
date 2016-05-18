@@ -34,8 +34,10 @@ Go to [http://192.168.7.2:3000](http://192.168.7.2:3000) to open Cloud9 IDE.
 - Breadboard
 - Jumper wires
 
+#####Code explanation
+The main file that is needed to run is "receiveSendSMS.py". The code's explanation can be found in the file itself. This file is responsible to receive SMS, process them and take necessary actions like changing LED colours, sending feedback SMS to healthworker. This also saves the SMS request in file "records".
+Another main script, "phantLoggerGSM.py" which runs at night time and uploads all the new entries received during the day which are saved in "records" file. The explanations for this file can also be found in that file only.
 
-<br />
 #####LED indicators
 In the initial prototype, green is a<img src="/images/led.jpg" align="right"  alt="led" width="300" height="270">
 normal indication. Red indicates an
@@ -55,11 +57,10 @@ Kamand ID: 0
 
 #####SMS
 <img src="/images/sms.png" alt="sms" height="300">
-<br>
 
 #####Frontend
 <img src="/images/frontend.png" alt="frontend">
-
+<br>
 #####App Features 
 
 - Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="300">
@@ -70,6 +71,4 @@ Kamand ID: 0
 - Easy to use Data frontend.
 - Android app with both quick SMS or net upload.
 
-#####Code explanation
-The main file that is needed to run is "receiveSendSMS.py". The code's explanation can be found in the file itself. This file is responsible to receive SMS, process them and take necessary actions like changing LED colours, sending feedback SMS to healthworker. This also saves the SMS request in file "records".
-Another main script, "phantLoggerGSM.py" which runs at night time and uploads all the new entries received during the day which are saved in "records" file. The explanations for this file can also be found in that file only.
+([Download Android App)](https://github.com/namangt68/visual_stock_indicator_system/raw/master/AndroidApp/MedRestock.apk)
