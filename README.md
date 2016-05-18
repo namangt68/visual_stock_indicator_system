@@ -5,7 +5,8 @@ A  SMS/Internet based medical stock indicator system.
 
 This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016 by Team Healthcare.
 
-####Architecture
+####Architecture  <img src="/images/working.jpg" align="right" alt="working" height="300">
+                        
 #####Indicator box
 - Beaglebone
 - GSM Module
@@ -14,9 +15,7 @@ This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016
 - Breadboard
 - Jumper wires
 
-####Working
 
-<img src="/images/working.jpg" alt="working" height="300">
 
 
 #####Led indicators
