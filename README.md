@@ -16,7 +16,7 @@ This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016
 - Jumper wires
 
 
-
+<br /><br /><br /><br /><br />
 
 #####Led indicators
 In the initial prototype, green is a<img src="/images/led.jpg" align="right"  alt="led" width="300" height="300">
