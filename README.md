@@ -3,7 +3,7 @@
 
 A  SMS/Internet based medical stock indicator system. 
 
-This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016 by Team Healthcare.
+This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016 by Team Healthcare at IIT Mandi.
 
 ####Architecture  <img src="/images/working.jpg" align="right" alt="working" height="300">
 #####Indicator box
