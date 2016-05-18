@@ -6,7 +6,6 @@ A  SMS/Internet based medical stock indicator system.
 This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016 by Team Healthcare.
 
 ####Architecture  <img src="/images/working.jpg" align="right" alt="working" height="300">
-                        
 #####Indicator box
 - Beaglebone
 - GSM Module
@@ -16,10 +15,9 @@ This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016
 - Jumper wires
 
 
-<br /><br /><br /><br /><br />
-
+<br /><br />
 #####Led indicators
-In the initial prototype, green is a<img src="/images/led.jpg" align="right"  alt="led" width="300" height="300">
+In the initial prototype, green is a<img src="/images/led.jpg" align="right"  alt="led" width="300" height="270">
 normal indication. Red indicates an
 unanswered stock shortage and
 request, and yellow indicates that the
