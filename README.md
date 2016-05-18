@@ -11,8 +11,20 @@ This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016
 
 
 #####Led indicators
-<img src="/images/led.jpg" alt="led" width="300" height="300">
+In the initial prototype, green is a<img src="/images/led.jpg" align="right"  alt="led" width="300" height="300">
+normal indication. Red indicates an
+unanswered stock shortage and
+request, and yellow indicates that the
+order is available at the CHC. When the
+status of a sub-center is changed to
+yellow, an automated SMS will be sent
+to update the sub-center worker.
 <br>
+<br>
+
+<br>
+<br>
+
 ####Working system
 #####SMS
 <img src="/images/sms.png" alt="sms" height="300">
@@ -21,11 +33,18 @@ This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016
 #####Frontend
 <img src="/images/frontend.png" alt="frontend">
 
+#####App Features 
 
-#####App
-<img src="/images/app_net.png" alt="app" height="300">
-<img src="/images/app_upload.png" alt="app" height="300">
-<img src="/images/app_sms.png"  alt="app" height="300">
+- Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="300">
+<img src="/images/app_upload.png" align="right" alt="app" height="300">
+<img src="/images/app_sms.png" align="right" alt="app" height="300">
+- Quick feedback on SMSs.
+- Data synchronized on cloud.
+- Easy to use Data frontend.
+- Android app with both quick SMS or net upload.
+
+
+
 
 
 
