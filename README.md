@@ -25,6 +25,7 @@ order is available at the CHC. When the
 status of a sub-center is changed to
 yellow, an automated SMS will be sent
 to update the sub-center worker.
+
 The pattern in which the Health workers will send SMS for stock indication:
 Kamand ID: 0
 - #kam0	-	Stock problem exists in Kamand
@@ -33,6 +34,7 @@ Kamand ID: 0
 Navlay ID: 1
 - #nav0	-	Stock problem exists in Navlay
 - #nav1	- 	Stock OK in Navlay
+
 ####Working system
 #####SMS
 <img src="/images/sms.png" alt="sms" height="300">
