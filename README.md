@@ -31,10 +31,6 @@ Kamand ID: 0
 - #kam0	-	Stock problem exists in Kamand
 - #kam1	- 	Stock OK in Kamand
 
-Navlay ID: 1
-- #nav0	-	Stock problem exists in Navlay
-- #nav1	- 	Stock OK in Navlay
-
 ####Working system
 #####SMS
 <img src="/images/sms.png" alt="sms" height="300">
