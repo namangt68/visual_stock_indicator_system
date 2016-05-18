@@ -36,7 +36,7 @@ Go to [http://192.168.7.2:3000](http://192.168.7.2:3000) to open Cloud9 IDE.
 
 
 <br />
-#####Led indicators
+#####LED indicators
 In the initial prototype, green is a<img src="/images/led.jpg" align="right"  alt="led" width="300" height="270">
 normal indication. Red indicates an
 unanswered stock shortage and
@@ -70,11 +70,6 @@ Kamand ID: 0
 - Easy to use Data frontend.
 - Android app with both quick SMS or net upload.
 
-
-
-
-
-
-
-
-
+#####Code explanation
+The main file that is needed to run is "receiveSendSMS.py". The code's explanation can be found in the file itself. This file is responsible to receive SMS, process them and take necessary actions like changing LED colours, sending feedback SMS to healthworker. This also saves the SMS request in file "records".
+Another main script, "phantLoggerGSM.py" which runs at night time and uploads all the new entries received during the day which are saved in "records" file. The explanations for this file can also be found in that file only.
