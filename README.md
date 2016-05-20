@@ -49,15 +49,14 @@ Kamand ID: 0
 - #kam0	-	Stock problem exists in Kamand
 - #kam1	- 	Stock OK in Kamand
 
-####Working system
+####Usage
 
-#####SMS
+##### Through direct SMS
 <img src="/images/sms.png" alt="sms" height="300">
-
-#####Frontend
-<img src="/images/frontend.png" alt="frontend">
 <br>
-#####App Features 
+
+#####Through App 
+######App Features 
 
 - Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="300">
 <img src="/images/app_upload.png" align="right" alt="app" height="300">
@@ -68,3 +67,15 @@ Kamand ID: 0
 - Android app with both quick SMS or net upload.
 
 ([Download Android App)](https://github.com/namangt68/visual_stock_indicator_system/raw/master/AndroidApp/MedRestock.apk)
+
+##### Medical Stock Data Frontend
+<img src="/images/frontend.png" alt="frontend">
+
+####Project Benefits
+
+- Accurate stock status at grassroot level.
+- Saves Health workers time.
+- Stock Maintenance in efficient and organized way.
+- Easily Extensible for higher levels.
+- Usability in technical limitations.
+- Easy to use e.g just SMS #kam0 p.
