@@ -67,8 +67,9 @@ Kamand ID: 0
 - Android app with both quick SMS or net upload.
 
 ([Download Android App)](https://github.com/namangt68/visual_stock_indicator_system/raw/master/AndroidApp/MedRestock.apk)
-
 <br>
+
+
 ##### Medical Stock Data Frontend
 <img src="/images/frontend.png" alt="frontend">
 
