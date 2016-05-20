@@ -44,23 +44,22 @@ status of a sub-center is changed to
 yellow, an automated SMS will be sent
 to update the sub-center worker.
 
-The pattern in which the Health workers will send SMS for stock indication:
-Kamand ID: 0
-- #kam0	-	Stock problem exists in Kamand
-- #kam1	- 	Stock OK in Kamand
-
 ####Usage
 
 ##### Through direct SMS
 <img src="/images/sms.png" alt="sms" height="300">
+The pattern in which the Health workers will send SMS for stock indication is:
+Kamand ID: 0
+- #kam0	-	Stock problem exists in Kamand
+- #kam1	- 	Stock OK in Kamand
 <br>
 
 #####Through App 
 ######App Features 
 
-- Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="300">
-<img src="/images/app_upload.png" align="right" alt="app" height="300">
-<img src="/images/app_sms.png" align="right" alt="app" height="300">
+- Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="350
+<img src="/images/app_upload.png" align="right" alt="app" height="350
+<img src="/images/app_sms.png" align="right" alt="app" height="350
 - Quick feedback on SMSs.
 - Data synchronized on cloud.
 - Easy to use Data frontend.
@@ -73,7 +72,7 @@ Kamand ID: 0
 
 ####Project Benefits
 
-- Accurate stock status at grassroot level.
+- Accurate medical stock status at grassroot level.
 - Saves Health workers time.
 - Stock Maintenance in efficient and organized way.
 - Easily Extensible for higher levels.
