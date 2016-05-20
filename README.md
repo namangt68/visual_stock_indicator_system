@@ -44,11 +44,9 @@ status of a sub-center is changed to
 yellow, an automated SMS will be sent
 to update the sub-center worker.
 
-####Usage
-
+####Usage <img src="/images/sms.png" align="right" alt="sms" height="350">
 ##### Through direct SMS
-The pattern in which the Health workers will send SMS for stock indication is: <img src="/images/sms.png" align="right" alt="sms" height="350">
-
+The pattern in which the Health workers will send SMS for stock indication is:
 Kamand ID: 0
 - #kam0	-	Stock problem exists in Kamand
 - #kam1	- 	Stock OK in Kamand
@@ -57,7 +55,7 @@ Kamand ID: 0
 <br>
 #####Through App 
 ######App Features 
-
+<br>
 - Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="350">
 <img src="/images/app_upload.png" align="right" alt="app" height="350">
 <img src="/images/app_sms.png" align="right" alt="app" height="350">
