@@ -57,7 +57,6 @@ Kamand ID: 0
 #####Through App 
 ######App Features 
 
-<br>
 - Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="350">
 <img src="/images/app_upload.png" align="right" alt="app" height="350">
 <img src="/images/app_sms.png" align="right" alt="app" height="350">
@@ -68,7 +67,7 @@ Kamand ID: 0
 
 ([Download Android App)](https://github.com/namangt68/visual_stock_indicator_system/raw/master/AndroidApp/MedRestock.apk)
 <br>
-
+<br>
 
 ##### Medical Stock Data Frontend
 <img src="/images/frontend.png" alt="frontend">
