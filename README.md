@@ -4,7 +4,8 @@
 A  SMS/Internet based medical stock indicator system. 
 
 This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016 by Team Healthcare at IIT Mandi.
-This project is developed as per needs of grasslevel unit of public healthcare system in Mandi, India under existing technical limitations(like limited internet connectivity). 
+
+This project is developed as per needs of grasslevel unit(called sub-center) of public healthcare system in Mandi, India under existing technical limitations(like limited internet connectivity). 
 
 ####Installation
 #####Beaglebone ([See blog post](http://namangt68.github.io/beaglebone/2016/05/08/beaglebone-windows-10-install.html))
