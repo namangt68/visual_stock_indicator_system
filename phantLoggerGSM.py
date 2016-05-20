@@ -143,8 +143,8 @@ print "Line to be uploaded Next: " + str(lineToBeUploadedNext)
 ## Phant Stuff ##
 #################
 server = "54.86.132.254" # This is the IP of data.sparkfun.com. Using IP instead of hostname may cause trouble in future if data.sparkfun.com changes their IP
-publicKey = "ZGoYlZXwRoCqpMNGON70"
-privateKey = "2mMjEV69NMc9NnpboprE" 
+publicKey = ""
+privateKey = "" ##Enter private key here obtained from data.sparkfun.com
 
 ############################################
 ##Read sensor data from file and upload it##
