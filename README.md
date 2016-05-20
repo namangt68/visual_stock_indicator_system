@@ -32,10 +32,10 @@ This project is developed as per needs of grasslevel unit(called sub-center) of 
 #####Code explanation
 The main file that is needed to run is `receiveSendSMS.py`. The code's explanation can be found in the file itself. This file is responsible to receive SMS, process them and take necessary actions like changing LED colours, sending feedback SMS to healthworker. This also saves the SMS request in file "records".
 
-Another main script, `phantLoggerGSM.py` which runs at night time and uploads all the new entries received during the day which are saved in "records" file. The explanations for this file can also be found in that file only.
+Another main script, `phantLoggerGSM.py` which runs at night time and uploads all the new entries received during the day which are saved in "records" file. The explanations for this file can also be found in that file only.<img src="/images/led.jpg" align="right"  alt="led" width="300" height="270">
 
 #####LED indicators
-In the initial prototype, green is a<img src="/images/led.jpg" align="right"  alt="led" width="300" height="270">
+In the initial prototype, green is a
 normal indication. Red indicates an
 unanswered stock shortage and
 request, and yellow indicates that the
@@ -47,8 +47,8 @@ to update the sub-center worker.
 ####Usage
 
 ##### Through direct SMS
-<img src="/images/sms.png" alt="sms" height="300">
-The pattern in which the Health workers will send SMS for stock indication is:
+The pattern in which the Health workers will send SMS for stock indication is: <img src="/images/sms.png" align="right" alt="sms" height="350">
+
 Kamand ID: 0
 - #kam0	-	Stock problem exists in Kamand
 - #kam1	- 	Stock OK in Kamand
@@ -57,9 +57,9 @@ Kamand ID: 0
 #####Through App 
 ######App Features 
 
-- Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="350
-<img src="/images/app_upload.png" align="right" alt="app" height="350
-<img src="/images/app_sms.png" align="right" alt="app" height="350
+- Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="350">
+<img src="/images/app_upload.png" align="right" alt="app" height="350">
+<img src="/images/app_sms.png" align="right" alt="app" height="350">
 - Quick feedback on SMSs.
 - Data synchronized on cloud.
 - Easy to use Data frontend.
