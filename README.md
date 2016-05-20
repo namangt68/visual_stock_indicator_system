@@ -56,8 +56,8 @@ Kamand ID: 0
 
 #####Through App 
 ######App Features 
-
-- Instant Stock Status reporting.<img src="/images/app_net.png" align="right" alt="app" height="350">
+<br>
+- Instant Stock Status.<img src="/images/app_net.png" align="right" alt="app" height="350">
 <img src="/images/app_upload.png" align="right" alt="app" height="350">
 <img src="/images/app_sms.png" align="right" alt="app" height="350">
 - Quick feedback on SMSs.
