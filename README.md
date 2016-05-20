@@ -50,10 +50,11 @@ The pattern in which the Health workers will send SMS for stock indication is:
 Kamand ID: 0
 - #kam1	- 	Stock OK in Kamand
 - #kam0 p108 a377z52	-	Stock problem exists in Kamand
-and Stock requested: 
-paracetamol: 108 units
-acetaminophen: 377 units
-zincSulphate: 52 units
+and Stock requested is: 
+- paracetamol: 108 units
+- acetaminophen: 377 units
+- zincSulphate: 52 units
+
 `Other sms patterns like help are mentioned in code`
 
 #####Through App 
