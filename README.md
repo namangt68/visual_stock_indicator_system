@@ -48,11 +48,13 @@ to update the sub-center worker.
 ##### Through direct SMS
 The pattern in which the Health workers will send SMS for stock indication is:
 Kamand ID: 0
-- #kam0	-	Stock problem exists in Kamand
 - #kam1	- 	Stock OK in Kamand
-<br>
-<br>
-<br>
+- #kam0 p108 a377z52	-	Stock problem exists in Kamand
+and Stock requested: 
+paracetamol: 108 units
+acetaminophen: 377 units
+zincSulphate: 52 units
+`Other sms patterns like help are mentioned in code`
 
 #####Through App 
 ######App Features 
