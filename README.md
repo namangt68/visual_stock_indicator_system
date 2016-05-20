@@ -51,7 +51,7 @@ Kamand ID: 0
 - #kam0	-	Stock problem exists in Kamand
 - #kam1	- 	Stock OK in Kamand
 <br>
-
+<br>
 <br>
 #####Through App 
 ######App Features 
@@ -66,6 +66,7 @@ Kamand ID: 0
 
 ([Download Android App)](https://github.com/namangt68/visual_stock_indicator_system/raw/master/AndroidApp/MedRestock.apk)
 
+<br>
 ##### Medical Stock Data Frontend
 <img src="/images/frontend.png" alt="frontend">
 
