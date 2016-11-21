@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Visual stock indicator system by namangt68</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Visual stock indicator system</h1>
+      <h2 class="project-tagline">A SMS/Internet based medical stock indicator system</h2>
+      <a href="https://github.com/namangt68/visual_stock_indicator_system" class="btn">View on GitHub</a>
+      <a href="https://github.com/namangt68/visual_stock_indicator_system/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/namangt68/visual_stock_indicator_system/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="visual-stock-indicator-system-vsis-" class="anchor" href="#visual-stock-indicator-system-vsis-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Visual Stock Indicator System (VSIS) <img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/frontend/finallogo.png" align="left" height="90" width="120">
+</h3>
+
+<p>A  SMS/Internet based medical stock indicator system. </p>
+
+<p>This system is part of Interactive Socio-Technical Practicum (ISTP) Project 2016 by Team Healthcare at IIT Mandi.</p>
+
+<p>This project is developed as per needs of grasslevel unit(called sub-center) of public healthcare system in Mandi, India under existing technical limitations(like limited internet connectivity). </p>
+
+<h4>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h4>
+
+<h5>
+<a id="beaglebone-see-blog-post" class="anchor" href="#beaglebone-see-blog-post" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Beaglebone (<a href="http://namangt68.github.io/beaglebone/2016/05/08/beaglebone-windows-10-install.html">See blog post</a>)</h5>
+
+<ul>
+<li>
+<code>It is recommended to download updated driver to run beaglebone to avoid driver installation errors.</code>
+
+<ul>
+<li> <strong>For Windows 64 bit</strong>: Download driver from <a href="https://github.com/jadonk/beaglebone-getting-started/raw/master/Drivers/Windows/BONE_D64.exe">here</a>.</li>
+<li> <strong>For Windows 32 bit</strong>: Download driver from <a href="https://github.com/jadonk/beaglebone-getting-started/raw/master/Drivers/Windows/BONE_DRV.exe">here</a>.</li>
+</ul>
+</li>
+<li>Right click on downloaded file and click <code>Run as administrator</code>.</li>
+<li>Follow steps and check if all three drivers are installed completely.</li>
+<li>Add and exception to proxy settings(if you use proxy) from <code>Change proxy settings</code> and add <strong>192.168.7.2</strong> in exception box and click save.</li>
+<li>Connect the Beaglebone using usb cable.</li>
+<li>Now open your browser(Chrome/firefox) and go to address <a href="http://192.168.7.2">http://192.168.7.2</a> and you will be shown 'beaglebone getting started guide'. </li>
+<li>Go to <a href="http://192.168.7.2:3000">http://192.168.7.2:3000</a> to open Cloud9 IDE.</li>
+</ul>
+
+<h4>
+<a id="architecture--" class="anchor" href="#architecture--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture  <img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/images/working.jpg" align="right" alt="working" height="300">
+</h4>
+
+<h5>
+<a id="indicator-box" class="anchor" href="#indicator-box" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Indicator box</h5>
+
+<ul>
+<li>Beaglebone</li>
+<li>GSM Module</li>
+<li>RGB LEDS</li>
+<li>Sim card</li>
+<li>Breadboard</li>
+<li>Jumper wires
+<br><br>
+</li>
+</ul>
+
+<h5>
+<a id="code-explanation" class="anchor" href="#code-explanation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code explanation</h5>
+
+<p>The main file that is needed to run is <code>receiveSendSMS.py</code>. The code's explanation can be found in the file itself. This file is responsible to receive SMS, process them and take necessary actions like changing LED colours, sending feedback SMS to healthworker. This also saves the SMS request in file "records".<img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/images/led.jpg" align="right" alt="led" width="300" height="270"></p>
+
+<p>Another main script, <code>phantLoggerGSM.py</code> which runs at night time and uploads all the new entries received during the day which are saved in "records" file. The explanations for this file can also be found in that file only.</p>
+
+<h5>
+<a id="led-indicators" class="anchor" href="#led-indicators" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LED indicators</h5>
+
+<p>In the initial prototype, green is a
+normal indication. Red indicates an
+unanswered stock shortage and
+request, and yellow indicates that the
+order is available at the CHC. When the
+status of a sub-center is changed to
+yellow, an automated SMS will be sent
+to update the sub-center worker.</p>
+
+<h4>
+<a id="usage-" class="anchor" href="#usage-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage <img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/images/sms.png" align="right" alt="sms" height="350">
+</h4>
+
+<h5>
+<a id="through-direct-sms" class="anchor" href="#through-direct-sms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Through direct SMS</h5>
+
+<p>The pattern in which the Health workers will send SMS for stock indication is:
+Kamand ID: 0</p>
+
+<ul>
+<li>#kam1 -   Stock OK in Kamand</li>
+<li>#kam0 p108 a377z52    -   Stock problem exists in Kamand
+and Stock requested is: 
+
+<ul>
+<li>paracetamol: 108 units</li>
+<li>acetaminophen: 377 units</li>
+<li>zincSulphate: 52 units</li>
+</ul>
+</li>
+</ul>
+
+<p><code>Other sms patterns like help are mentioned in code</code></p>
+
+<h5>
+<a id="through-app" class="anchor" href="#through-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Through App</h5>
+
+<h6>
+<a id="app-features" class="anchor" href="#app-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>App Features</h6>
+
+<ul>
+<li>Instant Stock Status.<img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/images/app_net.png" align="right" alt="app" height="350">
+<img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/images/app_upload.png" align="right" alt="app" height="350">
+<img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/images/app_sms.png" align="right" alt="app" height="350">
+</li>
+<li>Quick feedback on SMSs.</li>
+<li>Data synchronized on cloud.</li>
+<li>Easy to use Data frontend.</li>
+<li>Android app with both quick SMS or net upload.</li>
+</ul>
+
+<p>(<a href="https://github.com/namangt68/visual_stock_indicator_system/raw/master/AndroidApp/MedRestock.apk">Download Android App)</a>
+<br>
+<br></p>
+
+<h5>
+<a id="medical-stock-data-frontend" class="anchor" href="#medical-stock-data-frontend" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Medical Stock Data Frontend</h5>
+
+<p><img src="https://raw.githubusercontent.com/namangt68/visual_stock_indicator_system/master/images/frontend.png" alt="frontend"></p>
+
+<h4>
+<a id="project-benefits" class="anchor" href="#project-benefits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Benefits</h4>
+
+<ul>
+<li>Accurate medical stock status at grassroot level.</li>
+<li>Saves Health workers time.</li>
+<li>Stock Maintenance in efficient and organized way.</li>
+<li>Easily Extensible for higher levels.</li>
+<li>Usability in technical limitations.</li>
+<li>Easy to use e.g just SMS #kam0 p.</li>
+</ul>
+
+<h4>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h4>
+
+<p><a href="LICENSE">MIT License</a>.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/namangt68/visual_stock_indicator_system">Visual stock indicator system</a> is maintained by <a href="https://github.com/namangt68">namangt68</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
